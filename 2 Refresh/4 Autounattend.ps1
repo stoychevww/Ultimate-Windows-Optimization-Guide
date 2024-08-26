@@ -154,7 +154,10 @@ $MultilineComment = @"
 Set-Content -Path "$env:TEMP\autounattend.xml" -Value $MultilineComment -Force
 # user input change account name in autounattend
 $path = "$env:TEMP\autounattend.xml"
-$username = Read-Host -prompt "Enter Account Name"
+# force user to not leave name blank
+do {
+$username = Read-Host -Prompt "Enter Account Name"
+} while ([string]::IsNullOrWhiteSpace($username))
 (Get-Content $path) -replace "@",$username | out-file $path
 # convert file to utf8
 Get-Content "$env:TEMP\autounattend.xml" | Set-Content -Encoding utf8 "$env:SystemDrive\Windows\Temp\autounattend.xml" -Force
