@@ -43,6 +43,6 @@
 
 Write-Host "Installing: Gamepadla . . ."
 # download gamepadla
-Get-FileFromWeb -URL "https://github.com/cakama3a/Gamepadla/releases/download/1.1.5/Gamepadla.1.1.5.exe" -File "$env:TEMP\Gamepadla.exe"
+Get-FileFromWeb -URL "https://github.com/fr33thytweaks/files/raw/main/Gamepadla.exe" -File "$env:TEMP\Gamepadla.exe"
 # open gamepadla
 Start-Process "$env:TEMP\Gamepadla.exe"
