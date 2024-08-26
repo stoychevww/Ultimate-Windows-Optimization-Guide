@@ -50,11 +50,9 @@
     1 {
 
 Clear-Host
-# nvidiacontrolpanel - adjust image settings with preview - performance
-reg add "HKCU\SOFTWARE\NVIDIA Corporation\Global\NVTweak" /v "Gestalt" /t REG_DWORD /d "1" /f | Out-Null
 Write-Host "Installing: NvidiaProfileInspector . . ."
 # download inspector
-Get-FileFromWeb -URL "https://ozone3d.net/dl/dlz/nvidiaProfileInspector_2.4.0.4.zip" -File "$env:TEMP\Inspector.zip"
+Get-FileFromWeb -URL "https://github.com/fr33thytweaks/files/raw/main/Inspector.zip" -File "$env:TEMP\Inspector.zip"
 # extract files
 Expand-Archive "$env:TEMP\Inspector.zip" -DestinationPath "$env:TEMP\Inspector" -ErrorAction SilentlyContinue
 # create config for inspector
@@ -70,24 +68,6 @@ $MultilineComment = @"
         <SettingID>390467</SettingID>
         <SettingValue>2</SettingValue>
         <ValueType>Dword</ValueType>
-      </ProfileSetting>
-      <ProfileSetting>
-        <SettingNameInfo />
-        <SettingID>983226</SettingID>
-        <SettingValue>1</SettingValue>
-        <ValueType>Dword</ValueType>
-      </ProfileSetting>
-      <ProfileSetting>
-        <SettingNameInfo />
-        <SettingID>983227</SettingID>
-        <SettingValue>1</SettingValue>
-        <ValueType>Dword</ValueType>
-      </ProfileSetting>
-      <ProfileSetting>
-        <SettingNameInfo />
-        <SettingID>983295</SettingID>
-        <SettingValue>AAAAQAAAAAA=</SettingValue>
-        <ValueType>Binary</ValueType>
       </ProfileSetting>
       <ProfileSetting>
         <SettingNameInfo>Texture filtering - Negative LOD bias</SettingNameInfo>
@@ -269,12 +249,6 @@ $MultilineComment = @"
         <SettingValue>0</SettingValue>
         <ValueType>Dword</ValueType>
       </ProfileSetting>
-      <ProfileSetting>
-        <SettingNameInfo />
-        <SettingID>1343646814</SettingID>
-        <SettingValue>0</SettingValue>
-        <ValueType>Dword</ValueType>
-      </ProfileSetting>
     </Settings>
   </Profile>
 </ArrayOfProfile>
@@ -290,11 +264,9 @@ exit
     2 {
 
 Clear-Host
-# nvidiacontrolpanel - adjust image settings with preview - let the 3d application decide
-cmd /c "reg delete `"HKCU\SOFTWARE\NVIDIA Corporation\Global\NVTweak`" /v `"Gestalt`" /f >nul 2>&1"
 Write-Host "Installing: NvidiaProfileInspector . . ."
 # download inspector
-Get-FileFromWeb -URL "https://ozone3d.net/dl/dlz/nvidiaProfileInspector_2.4.0.4.zip" -File "$env:TEMP\Inspector.zip"
+Get-FileFromWeb -URL "https://github.com/fr33thytweaks/files/raw/main/Inspector.zip" -File "$env:TEMP\Inspector.zip"
 # extract files
 Expand-Archive "$env:TEMP\Inspector.zip" -DestinationPath "$env:TEMP\Inspector" -ErrorAction SilentlyContinue
 # create config for inspector
