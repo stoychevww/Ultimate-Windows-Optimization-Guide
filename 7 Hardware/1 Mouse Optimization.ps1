@@ -43,13 +43,9 @@
 
 Write-Host "Installing: Mouse Movement Recorder . . ."
 # download mouse movement recorder
-Get-FileFromWeb -URL "https://onedrive.live.com/download?cid=0396A2F7CEB35712&resid=396A2F7CEB35712%212989&authkey=AOxneL6PAvSWUbI" -File "$env:TEMP\Mouse Movement Recorder.zip"
-# extract files
-Expand-Archive "$env:TEMP\Mouse Movement Recorder.zip" -DestinationPath "$env:TEMP\Mouse Movement Recorder" -ErrorAction SilentlyContinue
-# extract files
-Expand-Archive "$env:TEMP\Mouse Movement Recorder\MouseMovementRecorder_1.14_20180117x.zip" -DestinationPath "$env:TEMP\Mouse Movement Recorder" -ErrorAction SilentlyContinue
+Get-FileFromWeb -URL "https://github.com/fr33thytweaks/files/raw/main/Mouse%20Movement%20Recorder.exe" -File "$env:TEMP\Mouse Movement Recorder.exe"
 # open mouse movement recorder
-Start-Process "$env:TEMP\Mouse Movement Recorder\MouseMovementRecorder.exe"
+Start-Process "$env:TEMP\Mouse Movement Recorder.exe"
 Clear-Host
 Write-Host "Mouse optimizations:"
 Write-Host "-Keep dongle close to mouse"
