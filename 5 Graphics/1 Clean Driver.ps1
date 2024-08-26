@@ -43,12 +43,9 @@
 
 Write-Host "Installing: DDU . . ."
 # download ddu
-Get-FileFromWeb -URL "https://www.wagnardsoft.com/DDU/download/DDU%20v18.0.7.8.exe" -File "$env:TEMP\DDU.exe"
-Clear-Host
-Write-Host "Extract: DDU . . ."
-# start ddu extractor
-Start-Process -wait "$env:TEMP\DDU.exe"
-Clear-Host
+Get-FileFromWeb -URL "https://github.com/fr33thytweaks/files/raw/main/DDU.zip" -File "$env:TEMP\DDU.zip"
+# extract files
+Expand-Archive "$env:TEMP\DDU.zip" -DestinationPath "$env:TEMP\DDU" -ErrorAction SilentlyContinue
 # create config for ddu
 $MultilineComment = @"
 <?xml version="1.0" encoding="utf-8"?>
@@ -81,9 +78,9 @@ $MultilineComment = @"
 	</Settings>
 </DisplayDriverUninstaller>
 "@
-Set-Content -Path "$env:TEMP\DDU v18.0.7.8\Settings\Settings.xml" -Value $MultilineComment -Force
+Set-Content -Path "$env:TEMP\DDU\Settings\Settings.xml" -Value $MultilineComment -Force
 # set config to read only
-Set-ItemProperty -Path "$env:TEMP\DDU v18.0.7.8\Settings\Settings.xml" -Name IsReadOnly -Value $true
+Set-ItemProperty -Path "$env:TEMP\DDU\Settings\Settings.xml" -Name IsReadOnly -Value $true
 # prevent downloads of drivers from windows update
 reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\DriverSearching" /v "SearchOrderConfig" /t REG_DWORD /d "0" /f | Out-Null
 # create msconfig shortcut
@@ -94,7 +91,7 @@ $Shortcut.Save()
 # create ddu shortcut
 $WshShell = New-Object -comObject WScript.Shell
 $Shortcut = $WshShell.CreateShortcut("$Home\Desktop\Display Driver Uninstaller.lnk")
-$Shortcut.TargetPath = "$env:TEMP\DDU v18.0.7.8\Display Driver Uninstaller.exe"
+$Shortcut.TargetPath = "$env:TEMP\DDU\Display Driver Uninstaller.exe"
 $Shortcut.Save()
 Clear-Host
 Write-Host "Restarting To Safe Mode: Press any key to restart . . ."
