@@ -1033,7 +1033,7 @@ Timeout /T 5 | Out-Null
 # enable windows-defender-default-definitions (can't turn back on)
 # Dism /Online /NoRestart /Enable-Feature /FeatureName:Windows-Defender-Default-Definitions | Out-Null
 # enable windows-defender-applicationguard
-Dism /Online /NoRestart /Enable-Feature /FeatureName:Windows-Defender-ApplicationGuard | Out-Null
+# Dism /Online /NoRestart /Enable-Feature /FeatureName:Windows-Defender-ApplicationGuard | Out-Null
 # enable data execution prevention
 cmd /c "bcdedit /deletevalue nx >nul 2>&1"
 Clear-Host
