@@ -86,7 +86,7 @@ exit
 Clear-Host
 Write-Host "Installing: 7Zip . . ."
 # download 7zip
-Get-FileFromWeb -URL "https://www.7-zip.org/a/7z2301-x64.exe" -File "$env:TEMP\7-Zip.exe"
+Get-FileFromWeb -URL "https://github.com/fr33thytweaks/files/raw/main/7-Zip.exe" -File "$env:TEMP\7-Zip.exe"
 # install 7zip
 Start-Process -wait "$env:TEMP\7-Zip.exe" -ArgumentList "/S"
 show-menu
@@ -192,7 +192,7 @@ show-menu
 Clear-Host
 Write-Host "Installing: Notepad ++ . . ."
 # download notepad ++
-Get-FileFromWeb -URL "https://files02.tchspt.com/down/npp.8.6.8.Installer.x64.exe" -File "$env:TEMP\Notepad ++.exe"
+Get-FileFromWeb -URL "https://github.com/fr33thytweaks/files/raw/main/Notepad%20++.exe" -File "$env:TEMP\Notepad ++.exe"
 # install notepad ++
 Start-Process -wait "$env:TEMP\Notepad ++.exe" -ArgumentList "/S"
 show-menu
@@ -203,7 +203,7 @@ show-menu
 Clear-Host
 Write-Host "Installing: OBS Studio . . ."
 # download obs studio
-Get-FileFromWeb -URL "https://cdn-fastly.obsproject.com/downloads/OBS-Studio-30.1-Full-Installer-x64.exe" -File "$env:TEMP\OBS Studio.exe"
+Get-FileFromWeb -URL "https://github.com/obsproject/obs-studio/releases/download/30.2.3/OBS-Studio-30.2.3-Windows-Installer.exe" -File "$env:TEMP\OBS Studio.exe"
 # install obs studio
 Start-Process -wait "$env:TEMP\OBS Studio.exe" -ArgumentList "/S"
 show-menu
@@ -212,14 +212,11 @@ show-menu
    13 {
 
 Clear-Host
-Write-Host "Roblox may attempt to reinstall Edge . . ."
-$null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
-Clear-Host
 Write-Host "Installing: Roblox . . ."
 # download roblox
 Get-FileFromWeb -URL "https://www.roblox.com/download/client?os=win" -File "$env:TEMP\Roblox.exe"
 # install roblox
-Start-Process -wait "$env:TEMP\Roblox.exe"
+Start-Process "$env:TEMP\Roblox.exe"
 show-menu
 
       }
