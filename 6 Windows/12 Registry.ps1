@@ -509,6 +509,10 @@ Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\Software\Microsoft\Personalization\Settings]
 "AcceptedPrivacyPolicy"=dword:00000000
 
+; disable sending required data
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\DataCollection]
+"AllowTelemetry"=dword:00000000
+
 ; feedback frequency never
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Siuf\Rules]
 "NumberOfSIUFInPeriod"=dword:00000000
@@ -1633,6 +1637,10 @@ Windows Registry Editor Version 5.00
 
 [HKEY_CURRENT_USER\Software\Microsoft\Personalization\Settings]
 "AcceptedPrivacyPolicy"=dword:00000001
+
+; sending required data
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\DataCollection]
+"AllowTelemetry"=-
 
 ; feedback frequency
 [-HKEY_CURRENT_USER\SOFTWARE\Microsoft\Siuf]
