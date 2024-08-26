@@ -366,6 +366,14 @@ Windows Registry Editor Version 5.00
 
 
 
+; SECURITY AND MAINTENANCE
+; disable report problems
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting]
+"Disabled"=dword:00000001
+
+
+
+
 ; --IMMERSIVE CONTROL PANEL--
 
 
@@ -1488,6 +1496,13 @@ Windows Registry Editor Version 5.00
 ; automatic maintenance
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\Maintenance]
 "MaintenanceDisabled"=-
+
+
+
+
+; SECURITY AND MAINTENANCE
+; report problems
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting]
 
 
 
