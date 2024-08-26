@@ -77,7 +77,7 @@ $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
 Clear-Host
 Write-Host "Installing: hidusbf . . ."
 # download hidusbf
-Get-FileFromWeb -URL "https://raw.githubusercontent.com/LordOfMice/hidusbf/master/hidusbf.zip" -File "$env:TEMP\hidusbf.zip"
+Get-FileFromWeb -URL "https://github.com/fr33thytweaks/files/raw/main/hidusbf.zip" -File "$env:TEMP\hidusbf.zip"
 # extract files
 Expand-Archive "$env:TEMP\hidusbf.zip" -DestinationPath "$env:USERPROFILE\Desktop\hidusbf" -ErrorAction SilentlyContinue                                            
 Clear-Host
