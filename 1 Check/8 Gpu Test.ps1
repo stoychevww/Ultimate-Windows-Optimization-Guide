@@ -43,11 +43,11 @@
 
 Write-Host "Installing: Furk Mark . . ."
 # download furkmark
-Get-FileFromWeb -URL "https://geeks3d.com/downloads/2024p/furmark2/FurMark_2.3.0.0_win64.zip" -File "$env:TEMP\Furk Mark.zip"
+Get-FileFromWeb -URL "https://github.com/fr33thytweaks/files/raw/main/Furk%20Mark.zip" -File "$env:TEMP\Furk Mark.zip"
 # extract files
 Expand-Archive "$env:TEMP\Furk Mark.zip" -DestinationPath "$env:TEMP\Furk Mark" -ErrorAction SilentlyContinue
 # start furkmark
-Start-Process "$env:TEMP\Furk Mark\FurMark_win64\FurMark_GUI.exe"
+Start-Process "$env:TEMP\Furk Mark\FurMark.exe"
 Clear-Host
 Write-Host "Run a basic GPU stress test."
 Write-Host ""
