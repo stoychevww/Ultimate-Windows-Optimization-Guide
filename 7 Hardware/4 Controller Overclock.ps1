@@ -75,25 +75,7 @@ Clear-Host
 Write-Host "If not using Option 1, disable Secure Boot in BIOS and delete Secure Boot keys . . ."
 $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
 Clear-Host
-Write-Host "Installing: hidusbf . . ."
-# download hidusbf
-Get-FileFromWeb -URL "https://github.com/fr33thytweaks/files/raw/main/hidusbf.zip" -File "$env:TEMP\hidusbf.zip"
-# extract files
-Expand-Archive "$env:TEMP\hidusbf.zip" -DestinationPath "$env:USERPROFILE\Desktop\hidusbf" -ErrorAction SilentlyContinue                                            
-Clear-Host
-# install sweetlow.cer
-$rootCertPath = "$env:USERPROFILE\Desktop\hidusbf\sweetlow.cer"
-$rootCert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
-$rootCert.Import($rootCertPath)
-$certStore = New-Object System.Security.Cryptography.X509Certificates.X509Store('Root', 'LocalMachine')
-$certStore.Open('ReadWrite')
-$certStore.Add($rootCert)
-$certStore.Close()
-# create ddu shortcut desktop
-$WshShell = New-Object -comObject WScript.Shell
-$Shortcut = $WshShell.CreateShortcut("$Home\Desktop\Setup.lnk")
-$Shortcut.TargetPath = "$env:USERPROFILE\Desktop\hidusbf\DRIVER\Setup.exe"
-$Shortcut.Save()
+Start-Process "https://github.com/fr33thytweaks/files/raw/main/hidusbf.zip"
 exit
 
       }
